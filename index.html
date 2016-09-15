@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html ng-app='imdb'>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>IMDB</title>
+		<link href="css/style.css" rel="stylesheet" />
+		<script src="js/angular.js"></script>
+		<!--app-->
+		<script src="app/imdb.js"></script>
+		
+		<!--controllers-->
+		<script src="app/controllers/searchBox.js"></script>
+		
+		<!--services-->
+		<script src="app/Services/message.js"></script>
+	</head>
+	<body>
+	 
+			<div ng-controller="searchBox">
+				<input ng-model='searchName'ng-change="getActors()" />
+				
+				<button ng-click='getActors()'>Search...</button>
+				<div ng-repeat="r in results">
+					<img ng-src='{{url1}}{{r.profile_path}}'/>
+					<br>
+					<a href="searchById.html" target="_blank"> Name:{{r.name}} </a>
+					<hr>
+				</div>
+				
+			</div>
+			
+			
+	</body>
+</html>
